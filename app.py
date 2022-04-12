@@ -2,7 +2,7 @@ import dash
 from dash import dcc,html
 from dash.dependencies import Input, Output, State
 import pickle
-
+from sklearn import datasets, linear_model, metrics
 
 
 ########### Define your variables ######
