@@ -57,7 +57,7 @@ def buildFeatures(BMI=28.32 # Number
     AgeCatCols = prefixer(AgeCatList, AgeCatColPrefix)
     AgeCatColsData = dataListBuilder (AgeCatList, AgeCategory)
     AgeCatData = buildDict(AgeCatCols, AgeCatColsData)
-    print ("\n*** AgeCatData", AgeCatData)
+    print ("\n7. AgeCatData", AgeCatData)
 
     RaceCatList= ['White', 'Black', 'Asian', 'American Indian/Alaskan Native', 'Other', 'Hispanic']
     RaceCatList.sort()
@@ -65,7 +65,7 @@ def buildFeatures(BMI=28.32 # Number
     RaceCatCols = prefixer(RaceCatList, RaceCatColPrefix)
     RaceCatColsData = dataListBuilder (RaceCatList, Race)
     RaceCatData = buildDict(RaceCatCols, RaceCatColsData)
-    print ("\n*** RaceCatData", RaceCatData)
+    print ("\n8. RaceCatData", RaceCatData)
 
     GenHealthCatList= ['Very good', 'Fair', 'Good', 'Poor', 'Excellent']
     GenHealthCatList.sort()
@@ -73,7 +73,7 @@ def buildFeatures(BMI=28.32 # Number
     GenHealthCatCols = prefixer(GenHealthCatList, GenHealthCatColPrefix)
     GenHealthCatColsData = dataListBuilder (GenHealthCatList, GenHealth)
     GenHealthData = buildDict(GenHealthCatCols, GenHealthCatColsData)
-    print ("\n*** GenHealthData", GenHealthData)
+    print ("\n9. GenHealthData", GenHealthData)
 
     PhysicalHealthMin= 0.0
     PhysicalHealthMax= 30.0
@@ -120,7 +120,7 @@ def buildFeatures(BMI=28.32 # Number
          , 'GenHealth_Good' : GenHealthData['GenHealth_Good']
          , 'GenHealth_Poor' : GenHealthData['GenHealth_Poor']
          , 'GenHealth_Very good':GenHealthData['GenHealth_Very good']}
-    print ("\n\n*** d", d)
+    print ("\n\n10. Features Built: ", d)
     return d
 
 ###init options
@@ -129,12 +129,17 @@ RaceOpt = buildOptionsDict(RaceCatList)
 GenHealthOpt = buildOptionsDict(GenHealthCatList)
 SexOpt = buildOptionsDict(['Male', 'Female'])
 YesNoOpt = buildOptionsDict(['Yes', 'No'])
-print(AgeOpt, RaceOpt, GenHealthOpt, SexOpt, YesNoOpt)
+print ("\n\n___________________________________________________\n")
+print("1. AgeOpt: ", AgeOpt)
+print("\n2. AgeOpt: ", RaceOpt)
+print("\n3. GenHealthOpt: ", GenHealthOpt)
+print("\n4. SexOpt: ", SexOpt)
+print("\n5. YesNoOpt: ", YesNoOpt)
 #### load model
 filename = open('cohos_lr_model.pkl', 'rb')
 unpickled_model = pickle.load(filename)
 filename.close()
-
+print("\n6. Pickled Model Params: ", unpickled_model.get_params())
 
 ########### Initiate the app
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
