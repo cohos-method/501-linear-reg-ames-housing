@@ -302,11 +302,10 @@ def ames_lr_function(clicks
                             , KidneyDisease
                             , SkinCancer)
         fts = [list(dic.values())]
-        ##res = unpickled_model.predict(fts)
+        res = unpickled_model.predict(fts)
         #formatted_y = "${:,.2f}".format(y[0])
-        ## return "Predicted Heart Disease: " + str(round(res[0] * 100, 2)) + "%"
-        return fts
-
+        return "Predicted Heart Disease: " + str(round(res[0] * 100, 2)) + "%"
+        
 
 
 ############ Deploy
