@@ -155,7 +155,7 @@ app.layout = html.Div(children=[
         html.Div([
                 html.H3('Features of Heart Health:'),
                 html.Div('BMI:'),
-                dcc.Slider(min=0, max=100, step=1,value=28,id='BMI'), ##={"placement": "bottom", "always_visible": True}), ##{0: '0',10: '10',20: '20',30: '30',40: '40',50: '50',60: '60',70: '70',80: '80',90: '90',100: '100'}),
+                dcc.Slider(min=0, max=100, step=1,value=28,id='BMI', tooltip={"placement": "bottom", "always_visible": True}, marks={0: '0',10: '10',20: '20',30: '30',40: '40',50: '50',60: '60',70: '70',80: '80',90: '90',100: '100'}),
                 html.Br(),
                 html.Div('Smoking:'),
                 dcc.RadioItems(options=YesNoOpt, value='No',  id='Smoking'),
@@ -167,11 +167,11 @@ app.layout = html.Div(children=[
                 dcc.RadioItems(options=YesNoOpt, value='No',  id='Stroke'),
                 html.Br(),
                 html.Div('Physical Health:'),
-                dcc.Slider(min=0, max=100, step=1,value=28,id='PhysicalHealth'), ##={"placement": "bottom", "always_visible": True}), ##{0: '0',10: '10',20: '20',30: '30',40: '40',50: '50',60: '60',70: '70',80: '80',90: '90',100: '100'}),
+                dcc.Slider(min=0, max=100, step=1,value=28,id='PhysicalHealth', tooltip={"placement": "bottom", "always_visible": True}, marks={0: '0',10: '10',20: '20',30: '30',40: '40',50: '50',60: '60',70: '70',80: '80',90: '90',100: '100'}),
                 html.Br(),
                 html.Br(),
                 html.Div('Mental Health:'),
-                dcc.Slider(min=0, max=100, step=1,value=28,id='MentalHealth'), ##={"placement": "bottom", "always_visible": True}), ##{0: '0',10: '10',20: '20',30: '30',40: '40',50: '50',60: '60',70: '70',80: '80',90: '90',100: '100'}),
+                dcc.Slider(min=0, max=100, step=1,value=28,id='MentalHealth', tooltip={"placement": "bottom", "always_visible": True}, marks={0: '0',10: '10',20: '20',30: '30',40: '40',50: '50',60: '60',70: '70',80: '80',90: '90',100: '100'}),
                 html.Br(),
                 html.Div('Diff Walking:'),
                 dcc.RadioItems(options=YesNoOpt, value='No',  id='DiffWalking'),
@@ -195,7 +195,7 @@ app.layout = html.Div(children=[
                 dcc.Dropdown(options=GenHealthOpt, value='Good', id='GenHealth'),
                 html.Br(),
                 html.Div('Sleep Time:'),
-                dcc.Slider(min=0, max=24, step=.5,value=8,id='SleepTime'), ##={"placement": "top", "always_visible": True}), ##{0: '0 hrs',2: '2 hrs',4: '4 hrs',6: '6 hrs',8: '8 hrs',10: '10 hrs',12: '12 hrs',14: '14 hrs',16: '16 hrs',18: '18 hrs',20: '20 hrs'}),
+                dcc.Slider(min=0, max=24, step=.5,value=8,id='SleepTime', tooltip={"placement": "top", "always_visible": True}, marks={0: '0 hrs',2: '2 hrs',4: '4 hrs',6: '6 hrs',8: '8 hrs',10: '10 hrs',12: '12 hrs',14: '14 hrs',16: '16 hrs',18: '18 hrs',20: '20 hrs'}),
                 html.Br(),
                 html.Div('Asthma:'),
                 dcc.RadioItems(options=YesNoOpt, value='No',  id='Asthma'),
@@ -305,7 +305,7 @@ def ames_lr_function(clicks
         res = unpickled_model.predict(fts)
         #formatted_y = "${:,.2f}".format(y[0])
         return "Predicted Heart Disease: " + str(round(res[0] * 100, 2)) + "%"
-        
+
 
 
 ############ Deploy
